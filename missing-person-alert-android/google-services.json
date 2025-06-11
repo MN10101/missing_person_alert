@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "95680482766",
+    "project_id": "missingpersonsalert-1fe12",
+    "storage_bucket": "missingpersonsalert-1fe12.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95680482766:android:f6b32e432e63213a74ef9f",
+        "android_client_info": {
+          "package_name": "com.example.missingalert"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBehTtGnZ362rBbDRckhs-DApinZ8dFOwk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vermisstenmeldung - Bestätigung</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="alert-header">
+  <h1>Vermisstenmeldung</h1>
+  <form th:action="@{/logout}" method="post">
+    <button type="submit" class="logout-button">Abmelden</button>
+  </form>
+</header>
+<main>
+  <section class="alert-details card">
+    <h2 th:text="${person.fullName}"></h2>
+    <img th:src="@{/api/persons/image/{filename}(filename=${imageFilename})}" th:alt="${person.fullName}" class="alert-image">
+    <p th:if="${locationName}" class="location-info"><strong>Zuletzt gesehen:</strong> <span th:text="${locationName}"></span></p>
+    <p>Bitte kontaktieren Sie die örtlichen Behörden, wenn Sie Informationen haben.</p>
+    <a th:href="@{/publish}" class="back-button">Zurück zum Veröffentlichen</a>
+  </section>
+</main>
+<footer>
+  <p>© 2025 Vermisstenmeldungssystem. Alle Rechte vorbehalten.</p>
+  <p th:if="${locationName}">Ortsdaten © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap-Mitwirkende</a>.</p>
+</footer>
+</body>
+</html>

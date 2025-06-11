@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vermisstenmeldung veröffentlichen</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/favicon.ico}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-messaging-compat.js"></script>
+</head>
+<body>
+<header class="alert-header">
+    <h1>Vermisstenmeldungssystem</h1>
+    <form th:action="@{/logout}" method="post">
+        <button type="submit" class="logout-button">Abmelden</button>
+    </form>
+</header>
+<main>
+    <section class="emergency-alerts" th:if="${emergencyAlerts != null and not #lists.isEmpty(emergencyAlerts)}">
+        <h2>Notfallwarnungen</h2>
+        <div th:each="alert : ${emergencyAlerts}" class="emergency-alert-card">
+            <h3 th:text="${alert.headline}"></h3>
+            <p th:text="${alert.description}"></p>
+            <p><strong>Betroffenes Gebiet:</strong> <span th:text="${alert.areaDesc}"></span></p>
+            <p><strong>Schweregrad:</strong> <span th:text="${alert.severity}"></span></p>
+        </div>
+    </section>
+
+    <section class="publish-form card">
+        <h2>Neue Vermisstenmeldung veröffentlichen</h2>
+        <form id="alert-form" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Vollständiger Name:</label>
+                <input type="text" id="name" name="name" required aria-describedby="name-desc">
+                <span id="name-desc" class="sr-only">Geben Sie den vollständigen Namen der vermissten Person ein</span>
+            </div>
+            <div class="form-group">
+                <label for="image">Bild:</label>
+                <input type="file" id="image" name="image" accept="image/jpeg,image/png" required aria-describedby="image-desc">
+                <span id="image-desc" class="sr-only">Laden Sie ein Bild der vermissten Person hoch (JPEG oder PNG, max. 5MB)</span>
+            </div>
+            <div class="form-group">
+                <label for="lastSeenLatitude">Zuletzt gesehene Breitengrad:</label>
+                <input type="number" id="lastSeenLatitude" name="lastSeenLatitude" step="any" aria-describedby="lat-desc">
+                <span id="lat-desc" class="sr-only">Geben Sie den Breitengrad des letzten bekannten Standorts ein (optional, zwischen 47.3 und 55.1 für Deutschland)</span>
+            </div>
+            <div class="form-group">
+                <label for="lastSeenLongitude">Zuletzt gesehener Längengrad:</label>
+                <input type="number" id="lastSeenLongitude" name="lastSeenLongitude" step="any" aria-describedby="lon-desc">
+                <span id="lon-desc" class="sr-only">Geben Sie den Längengrad des letzten bekannten Standorts ein (optional, zwischen 5.9 und 15.0 für Deutschland)</span>
+            </div>
+            <button type="submit">Meldung veröffentlichen</button>
+            <p id="form-message"></p>
+        </form>
+    </section>
+
+    <section class="current-alerts">
+        <h2>Aktuelle Meldungen</h2>
+        <div id="alert-list" class="alert-list"></div>
+        <p id="loading-indicator" style="display: none;">Laden...</p>
+        <p id="debug-message" style="color: #d9534f; display: none;"></p>
+        <button id="load-more" style="display: none;">Mehr laden</button>
+    </section>
+</main>
+<footer>
+    <p>© 2025 Vermisstenmeldungssystem. Alle Rechte vorbehalten.</p>
+</footer>
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

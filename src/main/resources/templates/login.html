@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anmeldung - Vermisstenmeldungssystem</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="alert-header">
+    <h1>Vermisstenmeldungssystem</h1>
+</header>
+<main class="login-register-section">
+    <section class="card">
+        <h2>Anmeldung</h2>
+        <form th:action="@{/login}" method="post">
+            <div class="form-group">
+                <label for="username">Benutzername:</label>
+                <input type="text" id="username" name="username" required aria-describedby="username-desc">
+                <span id="username-desc" class="sr-only">Geben Sie Ihren Benutzernamen ein</span>
+            </div>
+            <div class="form-group">
+                <label for="password">Passwort:</label>
+                <input type="password" id="password" name="password" required aria-describedby="password-desc">
+                <span id="password-desc" class="sr-only">Geben Sie Ihr Passwort ein</span>
+            </div>
+            <button type="submit">Anmelden</button>
+            <p th:if="${param.error}" class="error">Ungültiger Benutzername oder Passwort.</p>
+            <p th:if="${param.logout}" class="success">Sie wurden abgemeldet.</p>
+            <p th:if="${param.success}" class="success" th:text="${param.success}"></p>
+        </form>
+        <p>Kein Konto? <a th:href="@{/register}" class="back-button">Hier registrieren</a></p>
+    </section>
+</main>
+<footer>
+    <p>© 2025 Vermisstenmeldungssystem. Alle Rechte vorbehalten.</p>
+</footer>
+</body>
+</html>

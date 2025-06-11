@@ -1,0 +1,59 @@
+plugins {
+    id("org.springframework.boot") version "3.4.5"
+    id("io.spring.dependency-management") version "1.1.6"
+    id("java")
+}
+
+group = "com.missing"
+version = "0.0.1-SNAPSHOT"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenCentral()
+}
+
+subprojects {
+    repositories {
+        mavenCentral()
+        google()
+    }
+
+    tasks.withType(Test) {
+        useJUnitPlatform()
+    }
+}
+
+dependencies {
+    // Spring Boot Starters
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    runtimeOnly("org.springframework.boot:spring-boot-devtools")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    // Firebase Admin SDK
+    implementation("com.google.firebase:firebase-admin:9.4.0")
+
+    // PostgreSQL
+    runtimeOnly("org.postgresql:postgresql")
+
+    // Commons IO for file handling
+    implementation("commons-io:commons-io:2.17.0")
+
+    // XML Parsing for CAP Feed
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-xml")
+
+    // Gson for JSON parsing
+    implementation("com.google.code.gson:gson:2.11.0")
+
+    // Kotlin
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.1.21")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:2.1.21")
+    testImplementation("org.jetbrains.kotlin:kotlin-test:2.1.21")
+}

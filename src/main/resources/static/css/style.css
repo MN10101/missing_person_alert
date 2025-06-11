@@ -1,0 +1,394 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+/* Header Styles */
+header {
+    background-color: #1a73e8;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.alert-header {
+    background-color: #d32f2f;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.logout-button {
+    position: absolute;
+    right: 20px;
+    top: 35%;
+    transform: translateY(-50%);
+    background-color: #121212;
+    color: white;
+    border: 1px solid white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    width: auto;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #1a1a1a;
+    color: #ff3b3b;
+}
+
+/* For login/register pages where logout should only show when authenticated */
+.logout-container {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Main Content */
+main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Card Component (Professional Frame) */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px 2px rgba(211, 47, 47, 0.3);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid #e0e0e0;
+}
+
+/* Form Styles */
+section h2 {
+    margin-bottom: 1.5rem;
+    color: #121212;
+    font-weight: 500;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #444;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: #121212;
+    outline: none;
+}
+
+button {
+    background-color: #121212;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+button:hover {
+    background-color: #1a1a1a;
+    color: #ff3b3b;
+}
+
+.form-text {
+    display: block;
+    margin-top: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.form-text ul {
+    margin-top: 0.25rem;
+    padding-left: 1.5rem;
+}
+
+.check-icon {
+    margin-right: 0.5rem;
+}
+
+.check-icon.invalid {
+    color: #d9534f;
+}
+
+.check-icon.valid {
+    color: #5cb85c;
+}
+
+/* Specific Styles for Login and Register Pages */
+.login-register-section .card {
+    max-width: 400px;
+    margin: 2rem auto;
+}
+
+.login-register-section p {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#form-message {
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+/* Location Info */
+.location-info {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Alert Card */
+.alert-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+}
+
+.alert-card img {
+    max-width: 120px;
+    height: auto;
+    border-radius: 4px;
+    margin-right: 1.5rem;
+}
+
+.alert-card div {
+    flex: 1;
+}
+
+.alert-card h3 {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.alert-card p {
+    color: #666;
+}
+
+/* Alert Details */
+.alert-details {
+    text-align: center;
+}
+
+.alert-details h2 {
+    color: #d32f2f;
+    margin-bottom: 1rem;
+}
+
+.alert-image {
+    max-width: 300px;
+    height: auto;
+    border: 3px solid #d32f2f;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+/* Buttons and Links */
+.back-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #121212;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #1a1a1a;
+    color: #ff3b3b;
+}
+
+/* Emergency Alerts */
+.emergency-alerts {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #ffe6e6;
+    border: 2px solid #ff3333;
+    border-radius: 5px;
+}
+
+.emergency-alert-card {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ff3333;
+    border-radius: 5px;
+}
+
+.emergency-alert-card h3 {
+    color: #ff3333;
+    margin: 0 0 5px 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    color: #666;
+    border-top: 1px solid #e0e0e0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Messages */
+.error {
+    color: #d9534f;
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.success {
+    color: #5cb85c;
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+input:invalid,
+select:invalid {
+    border-color: #d9534f;
+}
+
+/* Accessibility Enhancements */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    body {
+        background-color: #000;
+        color: #fff;
+    }
+    .card, .alert-card, .emergency-alert-card {
+        background-color: #000;
+        border-color: #fff;
+    }
+    button, .back-button {
+        background-color: #00f;
+        color: #fff;
+    }
+    .alert-header {
+        background-color: #f00;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
+
+    .alert-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .alert-card img {
+        max-width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    button, .back-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .alert-image {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    section h2 {
+        font-size: 1.25rem;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="file"],
+    input[type="number"],
+    select {
+        font-size: 0.9rem;
+    }
+
+    .logout-button {
+        padding: 0.25rem 0.6rem;
+        font-size: 0.85rem;
+    }
+}
