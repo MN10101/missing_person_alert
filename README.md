@@ -34,7 +34,7 @@ This project uses **Gradle** for building:
 ## Testing
 
 This project includes unit tests written with **JUnit** and **Mockito** to ensure code reliability and maintainability.
-```
+
 ## License
 
 This project is licensed under the terms of the LICENSE file provided in the repository.
